@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<title>Treasure opener</title>
+</head>
+	<body>
+	<style>
+	 .treasure {
+	 	background-image: url("./img/close.png");
+	 	background-repeat:no-repeat;
+		background-position: center center;
+		padding: 40px;
+	 } 
+
+	</style>
+	<script type="text/javascript">
+		function randomBoxes(){
+			var arr = []
+			while(arr.length < 5){
+			    var randomnumber = Math.ceil(Math.random()*10)
+			    if(arr.indexOf(randomnumber) > -1) continue;
+			    arr[arr.length] = randomnumber;
+			}
+			console.log(arr)
+			//close all
+			for (var i = 1; i < 11; i++) {
+				$('#box'+i).css('background-image', 'url(./img/close.png)');
+			}
+			//open 4
+			for (var i = 0; i < 4; i++) {
+				$('#box'+arr[i]).css('background-image', 'url(./img/open.png)');
+			}
+			
+		}
+	</script>
+	<div>
+		<table style="width: 25%;border-collapse: collapse;" border = "1" cellpadding = "25">
+		<tbody>
+			<tr>
+				<td></td>
+				<td id="box1" class="treasure">1 </td>
+				<td id="box2" class="treasure">2 </td>
+			</tr>
+			<tr>
+				<td id="box3" class="treasure">3 </td>
+				<td id="box4" class="treasure">4 </td>
+				<td id="box5"class="treasure">5 </td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="box6" class="treasure">6 </td>
+				<td id="box7" class="treasure">7 </td>
+				<td id="box8" class="treasure">8 </td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id="box9" class="treasure">9 </td>
+				<td id="box10" class="treasure">10 </td>
+			</tr>
+		</tbody>
+		</table>
+		<input type="button" value="clickme" onclick="randomBoxes();" />
+	</div>
+	</body>
+</html>
